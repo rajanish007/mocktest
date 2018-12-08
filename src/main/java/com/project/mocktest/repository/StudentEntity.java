@@ -35,6 +35,9 @@ public class StudentEntity {
     private String studentEmail;
 
     @Autowired
+    public StudentEntity() {}
+
+    @Autowired
     public StudentEntity(String studentId,
                          @NotNull String studentName,
                          @NotNull String studentPassword,

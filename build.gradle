@@ -34,7 +34,8 @@ dependencies {
 			[group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'],
 			[group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'],
 			[group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.0.RELEASE'],
-			[group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.12']
+			[group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.12'],
+			[group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.0.RELEASE']
 	)
 	provided group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 }

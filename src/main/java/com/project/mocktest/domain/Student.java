@@ -14,6 +14,9 @@ public class Student {
 
     private String studentEmail;
 
+    public Student() {
+    }
+
     public Student(String studentId,
                    String studentName,
                    String studentPassword,
