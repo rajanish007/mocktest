@@ -14,7 +14,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="header_guest.jsp"/>
 <div class="container">
     <div style="border-radius: 5px;border-style:groove;margin-top: 10%;padding: 25px;background-color: #e6e6ff;width: 60%;margin-left: 20%;">
         <form id="registration-form" method="post">
@@ -50,18 +50,10 @@
             </div>
         </form>
     </div>
-    <div class="alert alert-warning" role="alert" style="margin-top: 10px;display:none;" id="pass-unmatch-alert">
-        Password does not match !
-    </div>
-    <div class="alert alert-success" id="reg-success-alert" role="alert" style="display: none;margin-top: 10px;">
-        User Authentication Successful ! You will be redirected ...
-    </div>
-    <div class="alert alert-danger" id="reg-fail-alert" role="alert" style="display: none;margin-top: 10px;">
-        User Authentication Failed !
-    </div>
+    <jsp:include page="alert.jsp"/>
 </div>
 <input type="hidden" id="context-path" value=${request.contextPath}>
+</body>
 <script type="text/javascript" src="/js/loginscript.js"></script>
 <script type="text/javascript" src="/js/httpscript.js"></script>
-</body>
 </html>

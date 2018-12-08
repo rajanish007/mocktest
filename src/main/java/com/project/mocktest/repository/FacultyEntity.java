@@ -2,10 +2,7 @@ package com.project.mocktest.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
@@ -15,8 +12,9 @@ import java.util.UUID;
 public class FacultyEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "f_id")
-    private String facultyId;
+    private long facultyId;
 
     @NotNull
     @Column(name = "f_name")
@@ -31,24 +29,21 @@ public class FacultyEntity {
     private String facultyUserName;
 
     @NotNull
-    @Column(name = "f_email")
+    @Column(name = "f_email",unique = true)
     private String facultyEmail;
 
     @Autowired
-    public FacultyEntity(String facultyId,
-                         @NotNull String facultyName,
+    public FacultyEntity(@NotNull String facultyName,
                          @NotNull String facultyPassword,
                          @NotNull String facultyUserName,
                          @NotNull String facultyEmail) {
-        if(facultyId == null)this.facultyId = UUID.randomUUID().toString();
-        else this.facultyId = facultyId;
         this.facultyName = facultyName;
         this.facultyPassword = facultyPassword;
         this.facultyUserName = facultyUserName;
         this.facultyEmail = facultyEmail;
     }
 
-    public String getFacultyId() {
+    public long getFacultyId() {
         return facultyId;
     }
 

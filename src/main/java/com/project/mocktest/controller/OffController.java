@@ -23,17 +23,7 @@ public class OffController implements ErrorController {
         Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
         return String.format("<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
                         + "<div>Exception Message: <b>%s</b></div><body></html>",
-                statusCode, exception==null? "N/A": exception.getMessage());
-    }
-
-    @RequestMapping(value = "/identifier_missing")
-    public void identifierMissingErrorHandler()throws AnubisException {
-        throw new AnubisException(HttpStatus.FORBIDDEN);
-    }
-
-    @RequestMapping(value = "/identifier_wrong")
-    public void identifierIncorrctErrorHandler() throws AnubisException {
-        throw new AnubisException(HttpStatus.BAD_REQUEST);
+                statusCode, exception == null ? "N/A" : exception.getMessage());
     }
 
     @Override

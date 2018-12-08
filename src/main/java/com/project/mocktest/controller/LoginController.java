@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -35,14 +36,13 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
-    public String postLogin(@RequestParam("username") String username,
-                            @RequestParam("password") String password,
-                            ModelMap map) throws AnubisException {
+    public ResponseEntity postLogin(@RequestParam("username") String username,
+                                    @RequestParam("password") String password,
+                                    ModelMap map) {
         if (!loginService.userAuthenticated(username, Utilities.Base64decode(password))) {
-            map.addAttribute(MockConstants.ERROR_ATTRIBUTE,MockConstants.UNAUTHORIZED_USER);
-            return MockConstants.ERROR_VIEW;
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        return "dashboard";
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/new/student", method = RequestMethod.GET)

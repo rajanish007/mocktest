@@ -1,17 +1,22 @@
 package com.project.mocktest.handlers;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.http.ResponseEntity;
 
-public class AnubisException extends Exception{
+import java.sql.SQLIntegrityConstraintViolationException;
 
-    public AnubisException(HttpStatus status){
-        switch (status){
-            case FORBIDDEN:
-                throw new HttpClientErrorException(HttpStatus.FORBIDDEN);
-            case BAD_REQUEST:
-                throw new HttpClientErrorException(HttpStatus.BAD_REQUEST);
+public class AnubisException {
+
+    private ResponseEntity responseEntity;
+
+    public AnubisException(Exception e) {
+        if (e instanceof DataIntegrityViolationException) {
+            this.responseEntity = new ResponseEntity(HttpStatus.METHOD_FAILURE);
         }
     }
 
+    public ResponseEntity getResponseEntity() {
+        return responseEntity;
+    }
 }

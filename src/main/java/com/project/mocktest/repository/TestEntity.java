@@ -2,10 +2,7 @@ package com.project.mocktest.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
@@ -16,8 +13,9 @@ import java.util.UUID;
 public class TestEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "t_id")
-    private String testId;
+    private long testId;
 
     @NotNull
     @Column(name = "t_date")
@@ -35,20 +33,17 @@ public class TestEntity {
     private String feedback;
 
     @Autowired
-    public TestEntity(String testId,
-                      @NotNull Date testDate,
+    public TestEntity(@NotNull Date testDate,
                       @NotNull String questionList,
                       @NotNull int testDuration,
                       String feedback) {
-        if(testId == null)this.testId = UUID.randomUUID().toString();
-        else this.testId = testId;
         this.testDate = testDate;
         this.questionList = questionList;
         this.testDuration = testDuration;
         this.feedback = feedback;
     }
 
-    public String getTestId() {
+    public long getTestId() {
         return testId;
     }
 

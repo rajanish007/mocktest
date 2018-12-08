@@ -2,10 +2,7 @@ package com.project.mocktest.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
@@ -15,8 +12,9 @@ import java.util.UUID;
 public class StudentEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "s_id")
-    private String studentId;
+    private long studentId;
 
     @NotNull
     @Column(name = "s_name")
@@ -31,27 +29,24 @@ public class StudentEntity {
     private String studentUserName;
 
     @NotNull
-    @Column(name = "s_email")
+    @Column(name = "s_email",unique = true)
     private String studentEmail;
 
     @Autowired
     public StudentEntity() {}
 
     @Autowired
-    public StudentEntity(String studentId,
-                         @NotNull String studentName,
+    public StudentEntity(@NotNull String studentName,
                          @NotNull String studentPassword,
                          @NotNull String studentUserName,
                          @NotNull String studentEmail) {
-        if(studentId == null)this.studentId = UUID.randomUUID().toString();
-        else this.studentId = studentId;
         this.studentName = studentName;
         this.studentPassword = studentPassword;
         this.studentUserName = studentUserName;
         this.studentEmail = studentEmail;
     }
 
-    public String getStudentId() {
+    public long getStudentId() {
         return studentId;
     }
 

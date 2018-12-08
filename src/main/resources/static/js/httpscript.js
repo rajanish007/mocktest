@@ -6,11 +6,11 @@ function get(url) {
         url: url,
         headers : header(),
         async : false,
-        error: function (jqXHR) {
-            statusCode = jqXHR;
+        error: function (data, statusText, xhr) {
+            statusCode = xhr.status;
         },
-        success: function (jqXHR) {
-            statusCode = jqXHR;
+        success: function (data, statusText, xhr) {
+            statusCode = xhr.status;
         }
     });
     return statusCode;
@@ -25,12 +25,11 @@ function post(url, data) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: data,
-        error: function (jqXHR) {
-            statusCode = jqXHR;
+        error: function (data, statusText, xhr) {
+            statusCode = data.status;
         },
-        success: function (jqXHR) {
-            console.log(jqXHR);
-            statusCode = jqXHR;
+        success: function (data, statusText, xhr) {
+            statusCode = data.status;
         }
     });
     return statusCode;

@@ -2,10 +2,7 @@ package com.project.mocktest.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
@@ -15,8 +12,9 @@ import java.util.UUID;
 public class QuestionEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "q_id")
-    private String questionId;
+    private long questionId;
 
     @NotNull
     @Column(name = "f_id")
@@ -51,8 +49,7 @@ public class QuestionEntity {
     private String fourthAnswer;
 
     @Autowired
-    public QuestionEntity(String questionId,
-                          @NotNull String faculty_Id,
+    public QuestionEntity(@NotNull String faculty_Id,
                           @NotNull int timeAllocated,
                           @NotNull String correctAnswer,
                           @NotNull String description,
@@ -60,8 +57,6 @@ public class QuestionEntity {
                           @NotNull String secondAnswer,
                           @NotNull String thirdAnswer,
                           @NotNull String fourthAnswer) {
-        if(questionId == null)this.questionId = UUID.randomUUID().toString();
-        else this.questionId = questionId;
         this.faculty_Id = faculty_Id;
         this.timeAllocated = timeAllocated;
         this.correctAnswer = correctAnswer;
@@ -72,7 +67,7 @@ public class QuestionEntity {
         this.fourthAnswer = fourthAnswer;
     }
 
-    public String getQuestionId() {
+    public long getQuestionId() {
         return questionId;
     }
 
