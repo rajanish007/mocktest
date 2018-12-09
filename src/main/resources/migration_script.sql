@@ -35,6 +35,7 @@ FOREIGN KEY(f_id) REFERENCES m_faculty(f_id)
 
 create table m_test(
 t_id bigint NOT NULL,
+s_id bigint NOT NULL,
 t_date DATETIME NOT NULL,
 t_q_list text NOT NULL,
 t_duration int NOT NULL,

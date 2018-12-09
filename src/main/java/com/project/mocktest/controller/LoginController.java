@@ -31,24 +31,26 @@ public class LoginController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String getLogin(final ModelMap model) {
+    public String getLogin(@RequestParam("isFaculty") boolean isFaculty, final ModelMap model) {
         return "login";
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
     public ResponseEntity postLogin(@RequestParam("username") String username,
                                     @RequestParam("password") String password,
+                                    @RequestParam("isFaculty") boolean isFaculty,
                                     ModelMap map) {
-        if (!loginService.userAuthenticated(username, Utilities.Base64decode(password))) {
+        if (!loginService.userAuthenticated(username, Utilities.Base64decode(password),isFaculty)) {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new/student", method = RequestMethod.GET)
-    public String registerStudent(final HttpServletRequest request,
-                                  final HttpServletResponse response,
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String registerStudent(@RequestParam("isFaculty") boolean isFaculty,
                                   final ModelMap model) {
-        return "loginNew";
+        if(isFaculty == false)
+        return "login_new_stud";
+        return "login_new_faculty";
     }
 }

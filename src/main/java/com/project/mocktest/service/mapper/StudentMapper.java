@@ -1,6 +1,7 @@
 package com.project.mocktest.service.mapper;
 
 import com.project.mocktest.domain.Student;
+import com.project.mocktest.domain.StudentVO;
 import com.project.mocktest.repository.StudentEntity;
 import com.project.mocktest.utils.Utilities;
 import org.springframework.stereotype.Component;
@@ -24,5 +25,24 @@ public class StudentMapper {
                 s.getStudentUserName(),
                 s.getStudentEmail());
     }
+
+    public StudentVO convertToVO(StudentEntity sEntity){
+        Student s = convert(sEntity);
+        StudentVO sVO = new StudentVO();
+        sVO.setStudentEmail(s.getStudentEmail());
+        sVO.setStudentId(s.getStudentId());
+        sVO.setStudentName(s.getStudentName());
+        sVO.setStudentUserName(s.getStudentUserName());
+        return sVO;
+    }
+
+//    public StudentEntity convert(StudentVO sVO){
+//        Student s = new Student();
+//        s.setStudentUserName();
+//        s.setStudentPassword();
+//        s.setStudentName();
+//        s.setStudentEmail();
+//        s.setStudentId();
+//    }
 
 }

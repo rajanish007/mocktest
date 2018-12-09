@@ -14,10 +14,9 @@
                     </i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -110px;">
-                    <a class="dropdown-item">John Doe</a>
+                    <a class="dropdown-item"><b>${student_profile.studentName}</b></a>
                     <hr class="my-1">
-                    <a class="dropdown-item" href="/login">Profile</a>
-                    <a class="dropdown-item" href="/login">Logout</a>
+                    <a class="dropdown-item" href="/">Logout</a>
                 </div>
             </li>
         </ul>

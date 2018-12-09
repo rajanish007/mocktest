@@ -21,13 +21,13 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="card-title"><b>Hi, ${student_profile.studentName} !</b></h4>
-                    <h5 class="card-text">Username : ${student_profile.studentUserName}</h5>
-                    <h5 class="card-text">Email : ${student_profile.studentEmail}</h5>
-                    <h5 class="card-text">ID : ${student_profile.studentId}</h5>
+                    <h4 class="card-title"><b>Hi, ${faculty_profile.facultyName} !</b></h4>
+                    <h5 class="card-text">Username : ${faculty_profile.facultyUserName}</h5>
+                    <h5 class="card-text">Email : ${faculty_profile.facultyEmail}</h5>
+                    <h5 class="card-text">ID : ${faculty_profile.facultyId}</h5>
                 </div>
                 <div class="col-md-6 text-right">
-                    <img src="/img/stud.png" style="width: 100px;height: 100px;">
+                    <img src="/img/fac.jpg" style="width: 100px;height: 100px;">
                 </div>
             </div>
             <hr class="my-4">

@@ -29,7 +29,7 @@
                 <label for="inputPassword">Password</label>
                 <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
             </div>
-            <label><a href="/login/new/student">Not a user ? Register !</a></label>
+            <label><a href="" id="registration-link">Not a user ? Register !</a></label>
             <div class="text-center">
                 <button class="btn btn-success" id="login_button" type="submit">Proceed</button>
             </div>
@@ -37,6 +37,5 @@
     </div>
     <jsp:include page="alert.jsp"/>
 </div>
-<input type="hidden" id="context-path" value=${request.contextPath}>
 </body>
 </html>

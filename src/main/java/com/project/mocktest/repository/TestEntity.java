@@ -18,6 +18,10 @@ public class TestEntity {
     private long testId;
 
     @NotNull
+    @Column(name = "s_id")
+    private long studentId;
+
+    @NotNull
     @Column(name = "t_date")
     private Date testDate;
 
@@ -33,10 +37,12 @@ public class TestEntity {
     private String feedback;
 
     @Autowired
-    public TestEntity(@NotNull Date testDate,
+    public TestEntity(@NotNull long studentId,
+                      @NotNull Date testDate,
                       @NotNull String questionList,
                       @NotNull int testDuration,
                       String feedback) {
+        this.studentId = studentId;
         this.testDate = testDate;
         this.questionList = questionList;
         this.testDuration = testDuration;
@@ -63,13 +69,18 @@ public class TestEntity {
         return feedback;
     }
 
+    public long getStudentId() {
+        return studentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TestEntity that = (TestEntity) o;
-        return testDuration == that.testDuration &&
-                Objects.equals(testId, that.testId) &&
+        return testId == that.testId &&
+                studentId == that.studentId &&
+                testDuration == that.testDuration &&
                 Objects.equals(testDate, that.testDate) &&
                 Objects.equals(questionList, that.questionList) &&
                 Objects.equals(feedback, that.feedback);
@@ -77,13 +88,14 @@ public class TestEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(testId, testDate, questionList, testDuration, feedback);
+        return Objects.hash(testId, studentId, testDate, questionList, testDuration, feedback);
     }
 
     @Override
     public String toString() {
         return "TestEntity{" +
-                "testId='" + testId + '\'' +
+                "testId=" + testId +
+                ", studentId=" + studentId +
                 ", testDate=" + testDate +
                 ", questionList='" + questionList + '\'' +
                 ", testDuration=" + testDuration +

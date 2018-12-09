@@ -33,6 +33,10 @@ public class FacultyEntity {
     private String facultyEmail;
 
     @Autowired
+    public FacultyEntity() {
+    }
+
+    @Autowired
     public FacultyEntity(@NotNull String facultyName,
                          @NotNull String facultyPassword,
                          @NotNull String facultyUserName,

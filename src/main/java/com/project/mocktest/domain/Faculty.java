@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Faculty {
 
-    private String facultyId;
+    private long facultyId;
 
     private String facultyName;
 
@@ -14,7 +14,10 @@ public class Faculty {
 
     private String facultyEmail;
 
-    public Faculty(String facultyId,
+    public Faculty() {
+    }
+
+    public Faculty(long facultyId,
                    String facultyName,
                    String facultyPassword,
                    String facultyUserName,
@@ -26,11 +29,11 @@ public class Faculty {
         this.facultyEmail = facultyEmail;
     }
 
-    public String getFacultyId() {
+    public long getFacultyId() {
         return facultyId;
     }
 
-    public void setFacultyId(String facultyId) {
+    public void setFacultyId(long facultyId) {
         this.facultyId = facultyId;
     }
 

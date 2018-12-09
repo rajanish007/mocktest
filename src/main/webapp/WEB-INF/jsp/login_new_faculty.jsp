@@ -20,24 +20,24 @@
         <form id="registration-form" method="post">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" name="studentName" required>
+                <input type="text" class="form-control" name="facultyName" required>
             </div>
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" class="form-control" aria-describedby="usernameHelp" name="studentUserName" required>
+                <input type="text" class="form-control" aria-describedby="usernameHelp" name="facultyUserName" required>
                 <small id="usernameHelp" class="form-text text-muted">Maximum 20 characters.</small>
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email address</label>
                 <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                       placeholder="name@example.com" name="studentEmail" required>
+                       placeholder="name@example.com" name="facultyEmail" required>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
                 </small>
             </div>
             <div class="form-group">
                 <label for="inputPassword1">Password</label>
                 <input type="password" class="form-control" id="inputPassword1" placeholder="Password"
-                       aria-describedby="passwordHelp" name="studentPassword" required>
+                       aria-describedby="passwordHelp" name="facultyPassword" required>
                 <small id="passwordHelp" class="form-text text-muted">Maximum 20 characters.</small>
             </div>
             <div class="form-group">
@@ -52,7 +52,6 @@
     </div>
     <jsp:include page="alert.jsp"/>
 </div>
-<input type="hidden" id="context-path" value=${request.contextPath}>
 </body>
 <script type="text/javascript" src="/js/loginscript.js"></script>
 <script type="text/javascript" src="/js/httpscript.js"></script>
