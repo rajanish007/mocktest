@@ -29,7 +29,7 @@ public class QuestionEntity {
     private String correctAnswer;
 
     @NotNull
-    @Column(name = "q_desc")
+    @Column(name = "q_desc",unique = true)
     private String description;
 
     @NotNull
@@ -47,6 +47,10 @@ public class QuestionEntity {
     @NotNull
     @Column(name = "q_fourth_ans")
     private String fourthAnswer;
+
+    @Autowired
+    public QuestionEntity() {
+    }
 
     @Autowired
     public QuestionEntity(@NotNull String faculty_Id,

@@ -35,7 +35,8 @@ dependencies {
 			[group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'],
 			[group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.0.RELEASE'],
 			[group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.12'],
-			[group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1']
+			[group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'],
+			[group: 'jstl', name: 'jstl', version: '1.2']
 	)
 	compileOnly(
 			[group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1']

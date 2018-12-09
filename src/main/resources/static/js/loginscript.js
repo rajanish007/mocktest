@@ -52,37 +52,3 @@ $(document).ready(function () {
         }
     });
 });
-
-function toJSONString(form) {
-    var obj = {};
-    var elements = form.querySelectorAll("input, select, textarea");
-    for (var i = 0; i < elements.length; ++i) {
-        var element = elements[i];
-        var name = element.name;
-        var value = element.value;
-
-        if (name) {
-            obj[name] = value;
-        }
-    }
-    return JSON.stringify(obj);
-}
-
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-}
-
-function redirect(endpoint) {
-    window.location.replace(window.location.origin + endpoint);
-}

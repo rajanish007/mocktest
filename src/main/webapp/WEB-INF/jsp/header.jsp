@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg">
+<nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg" style="position: sticky;top: 0;z-index: 100;">
     <a class="navbar-brand" href="/">MOCKPRO</a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
@@ -14,7 +14,7 @@
                     </i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -110px;">
-                    <a class="dropdown-item"><b>${student_profile.studentName}</b></a>
+                    <a class="dropdown-item"><b>${student_profile.studentName == null ? faculty_profile.facultyName : student_profile.studentName}</b></a>
                     <hr class="my-1">
                     <a class="dropdown-item" href="/">Logout</a>
                 </div>

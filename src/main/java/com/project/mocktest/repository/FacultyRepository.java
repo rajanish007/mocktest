@@ -13,4 +13,7 @@ public interface FacultyRepository extends JpaRepository<FacultyEntity, String> 
 
     @Query(value = "select * from m_faculty where f_uname = :username or f_email = :username", nativeQuery = true)
     public FacultyEntity findUserByfacultyUserName(@Param("username") String username);
+
+    @Query(value = "select f_id from m_faculty where f_uname = :username",nativeQuery = true)
+    public String findFacultyIdFromName(@Param("username") String username);
 }

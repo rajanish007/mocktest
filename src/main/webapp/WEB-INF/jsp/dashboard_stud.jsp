@@ -17,7 +17,7 @@
 <jsp:include page="header.jsp"/>
 <div class="container">
     <div class="card" style="margin-top: 10px;">
-        <img class="card-img-top" src="/img/mcq.jpg" alt="Card image cap" style="height: 50vh;">
+        <img class="card-img-top" src="/img/mcq.jpg" alt="Card image cap" style="height: 30vh;">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">

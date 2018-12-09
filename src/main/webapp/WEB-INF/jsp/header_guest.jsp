@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg">
+<nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg" style="position: sticky;top: 0;z-index: 100;">
     <a class="navbar-brand" href="/">MOCKPRO</a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
