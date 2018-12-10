@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Student {
 
-    private String studentId;
+    private long studentId;
 
     private String studentName;
 
@@ -14,7 +14,10 @@ public class Student {
 
     private String studentEmail;
 
-    public Student(String studentId,
+    public Student() {
+    }
+
+    public Student(long studentId,
                    String studentName,
                    String studentPassword,
                    String studentUserName,
@@ -26,11 +29,11 @@ public class Student {
         this.studentEmail = studentEmail;
     }
 
-    public String getStudentId() {
+    public long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 

@@ -3,10 +3,7 @@ package com.project.mocktest.repository;
 import com.project.mocktest.constant.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
@@ -16,8 +13,9 @@ import java.util.UUID;
 public class ResultEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "r_id")
-    private String resultId;
+    private long resultId;
 
     @NotNull
     @Column(name = "t_id")
@@ -40,14 +38,11 @@ public class ResultEntity {
     private Status status;
 
     @Autowired
-    public ResultEntity(String resultId,
-                        @NotNull String testId,
+    public ResultEntity(@NotNull String testId,
                         @NotNull String studentId,
                         @NotNull int totalQuestions,
                         @NotNull int correctAnswers,
                         @NotNull Status status) {
-        if(resultId == null)this.resultId = UUID.randomUUID().toString();
-        else this.resultId = resultId;
         this.testId = testId;
         this.studentId = studentId;
         this.totalQuestions = totalQuestions;
@@ -55,7 +50,7 @@ public class ResultEntity {
         this.status = status;
     }
 
-    public String getResultId() {
+    public long getResultId() {
         return resultId;
     }
 
