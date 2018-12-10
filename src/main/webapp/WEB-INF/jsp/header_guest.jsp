@@ -9,14 +9,11 @@
                    data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">
-                    <i class="material-icons">
-                        person
-                    </i>
+                    Login
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -110px;">
-                    <a class="dropdown-item"><b>${student_profile.studentName == null ? faculty_profile.facultyName : student_profile.studentName}</b></a>
-                    <hr class="my-1">
-                    <a class="dropdown-item" href="/">Logout</a>
+                    <a class="dropdown-item" href="/login?isFaculty=false" id="student-portal">Student</a>
+                    <a class="dropdown-item" href="/login?isFaculty=true" id="faculty-portal">Faculty</a>
                 </div>
             </li>
         </ul>

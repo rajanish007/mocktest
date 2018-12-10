@@ -1,10 +1,6 @@
 package com.project.mocktest.domain;
 
-import java.util.Objects;
-
-public class Question {
-
-    private long questionId;
+public class QuestionVO {
 
     private String faculty_Id;
 
@@ -22,8 +18,7 @@ public class Question {
 
     private String fourthAnswer;
 
-    public Question() {
-    }
+    private long questionId;
 
     public String getFaculty_Id() {
         return faculty_Id;
@@ -95,41 +90,5 @@ public class Question {
 
     public void setQuestionId(long questionId) {
         this.questionId = questionId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Question question = (Question) o;
-        return questionId == question.questionId &&
-                timeAllocated == question.timeAllocated &&
-                Objects.equals(faculty_Id, question.faculty_Id) &&
-                Objects.equals(correctAnswer, question.correctAnswer) &&
-                Objects.equals(description, question.description) &&
-                Objects.equals(firstAnswer, question.firstAnswer) &&
-                Objects.equals(secondAnswer, question.secondAnswer) &&
-                Objects.equals(thirdAnswer, question.thirdAnswer) &&
-                Objects.equals(fourthAnswer, question.fourthAnswer);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(questionId, faculty_Id, timeAllocated, correctAnswer, description, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
-    }
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "questionId=" + questionId +
-                ", faculty_Id='" + faculty_Id + '\'' +
-                ", timeAllocated=" + timeAllocated +
-                ", correctAnswer='" + correctAnswer + '\'' +
-                ", description='" + description + '\'' +
-                ", firstAnswer='" + firstAnswer + '\'' +
-                ", secondAnswer='" + secondAnswer + '\'' +
-                ", thirdAnswer='" + thirdAnswer + '\'' +
-                ", fourthAnswer='" + fourthAnswer + '\'' +
-                '}';
     }
 }

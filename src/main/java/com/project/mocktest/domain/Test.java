@@ -7,6 +7,8 @@ public class Test {
 
     private String testId;
 
+    private String studentId;
+
     private Date testDate;
 
     private String questionList;
@@ -15,11 +17,13 @@ public class Test {
 
     private String feedback;
 
-    public Test(String testId,
+    public Test(String studentId,
+                String testId,
                 Date testDate,
                 String questionList,
                 int testDuration,
                 String feedback) {
+        this.studentId = studentId;
         this.testId = testId;
         this.testDate = testDate;
         this.questionList = questionList;
@@ -67,6 +71,14 @@ public class Test {
         this.feedback = feedback;
     }
 
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,6 +86,7 @@ public class Test {
         Test test = (Test) o;
         return testDuration == test.testDuration &&
                 Objects.equals(testId, test.testId) &&
+                Objects.equals(studentId, test.studentId) &&
                 Objects.equals(testDate, test.testDate) &&
                 Objects.equals(questionList, test.questionList) &&
                 Objects.equals(feedback, test.feedback);
@@ -81,13 +94,14 @@ public class Test {
 
     @Override
     public int hashCode() {
-        return Objects.hash(testId, testDate, questionList, testDuration, feedback);
+        return Objects.hash(testId, studentId, testDate, questionList, testDuration, feedback);
     }
 
     @Override
     public String toString() {
         return "Test{" +
                 "testId='" + testId + '\'' +
+                ", studentId='" + studentId + '\'' +
                 ", testDate=" + testDate +
                 ", questionList='" + questionList + '\'' +
                 ", testDuration=" + testDuration +

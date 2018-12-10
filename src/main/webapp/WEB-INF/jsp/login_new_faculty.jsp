@@ -14,46 +14,45 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="header_guest.jsp"/>
 <div class="container">
     <div style="border-radius: 5px;border-style:groove;margin-top: 10%;padding: 25px;background-color: #e6e6ff;width: 60%;margin-left: 20%;">
-        <form>
+        <form id="registration-form" method="post">
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="facultyName" required>
             </div>
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" class="form-control" aria-describedby="usernameHelp">
+                <input type="text" class="form-control" aria-describedby="usernameHelp" name="facultyUserName" required>
                 <small id="usernameHelp" class="form-text text-muted">Maximum 20 characters.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="name@example.com">
+                <label for="inputEmail">Email address</label>
+                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                       placeholder="name@example.com" name="facultyEmail" required>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
                 </small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                       aria-describedby="passwordHelp">
+                <label for="inputPassword1">Password</label>
+                <input type="password" class="form-control" id="inputPassword1" placeholder="Password"
+                       aria-describedby="passwordHelp" name="facultyPassword" required>
                 <small id="passwordHelp" class="form-text text-muted">Maximum 20 characters.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Retype Password">
+                <label for="inputPassword2">Password</label>
+                <input type="password" class="form-control" id="inputPassword2" placeholder="Retype Password"
+                       required>
             </div>
-            <div class="form-check">
-                <label class="form-check-label"></label>
+            <div class="text-center">
+                <button class="btn btn-success" type="submit">Register</button>
             </div>
         </form>
-        <div class="text-center">
-            <a href="q1.html">
-                <button class="btn btn-success">Register</button>
-            </a>
-        </div>
     </div>
+    <jsp:include page="alert.jsp"/>
 </div>
 </body>
+<script type="text/javascript" src="/js/loginscript.js"></script>
+<script type="text/javascript" src="/js/httpscript.js"></script>
 </html>
