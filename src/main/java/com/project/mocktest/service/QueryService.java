@@ -38,4 +38,13 @@ public class QueryService {
         return questionVOS;
     }
 
+    public List<QuestionVO> getRandomQueries(){
+        List<QuestionEntity> questionEntities = questionRepository.findByRandom();
+        List<QuestionVO> questionVOS = new ArrayList();
+        for(QuestionEntity qEntity : questionEntities){
+            questionVOS.add(queryMapper.convertToVO(qEntity));
+        }
+        return questionVOS;
+    }
+
 }

@@ -2,6 +2,14 @@ $(document).ready(function () {
     $("#registration-link").attr("href",
         $("#registration-link").val() + "/login/new?isFaculty=" + getUrlParameter("isFaculty"));
 
+    if(getUrlParameter("isFaculty") == "true"){
+        $("#f-portal").show();
+        $("#s-portal").hide();
+    }else{
+        $("#f-portal").hide();
+        $("#s-portal").show();
+    }
+
     $("#login-form").submit(function (event) {
         event.preventDefault();
         var username = $("#inputUsername").val();

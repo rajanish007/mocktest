@@ -17,8 +17,12 @@
 </head>
 <body>
 <jsp:include page="header_guest.jsp"/>
+<div class="container text-center" style="margin-top: 10%;">
+    <div class="text-center" id="s-portal" style="display: none;"><h4><b>STUDENT LOGIN PORTAL</b></h4></div>
+    <div class="text-center" id="f-portal" style="display: none;"><h4><b>FACULTY LOGIN PORTAL</b></h4></div>
+</div>
 <div class="container">
-    <div style="border-radius: 5px;border-style:groove;margin-top: 20%;padding: 25px;background-color: #e6e6ff;width: 60%;margin-left: 20%;">
+    <div style="border-radius: 5px;border-style:groove;margin-top: 2%;padding: 25px;background-color: #e6e6ff;width: 60%;margin-left: 20%;">
         <form id="login-form" method="get" action="">
             <div class="form-group">
                 <label for="inputUsername">Username/Email</label>
