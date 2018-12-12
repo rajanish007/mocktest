@@ -54,6 +54,9 @@
                     </div>
 
                     <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Choose Correct Option</span>
+                        </div>
                         <select class="custom-select" name="correctAnswer" required>
                             <option value="A">A</option>
                             <option value="B">B</option>

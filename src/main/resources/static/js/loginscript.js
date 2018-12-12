@@ -2,11 +2,19 @@ $(document).ready(function () {
     $("#registration-link").attr("href",
         $("#registration-link").val() + "/login/new?isFaculty=" + getUrlParameter("isFaculty"));
 
+    if (getUrlParameter("isFaculty") == "true") {
+        $("#f-portal").show();
+        $("#s-portal").hide();
+    } else {
+        $("#f-portal").hide();
+        $("#s-portal").show();
+    }
+
     $("#login-form").submit(function (event) {
         event.preventDefault();
         var username = $("#inputUsername").val();
         if ($("#inputPassword").val().length > 20) {
-            danger("Password length must be maximum 20 characters !");
+            danger("Password length must be maximum 5-20 characters !");
             return;
         } else if ($("#inputUsername").val().length > 20) {
             danger("Username length must be maximum 20 characters !");
@@ -20,8 +28,8 @@ $(document).ready(function () {
                 var statusCode = get(url);
                 if (statusCode == 200) {
                     success("User Authentication Successful ! You will be redirected ...");
-                    if(getUrlParameter("isFaculty") != "true")redirect("/dashboard/student?username="+username);
-                    else redirect("/dashboard/faculty?username="+username);
+                    if (getUrlParameter("isFaculty") != "true") redirect("/dashboard/student?username=" + username);
+                    else redirect("/dashboard/faculty?username=" + username);
                 } else {
                     danger("Username or password is incorrect ! Try Again !");
                 }
@@ -34,6 +42,8 @@ $(document).ready(function () {
         if ($("#inputPassword1").val() !== $("#inputPassword2").val()) {
             warning("Password Mismatch !");
             return;
+        } else if ($("#inputPassword1").val().length < 5 || $("#inputPassword1").val().length > 20) {
+            warning("Username length must be maximum 5-20 characters !");
         } else {
             var data = toJSONString(this);
             var url = window.location.origin;

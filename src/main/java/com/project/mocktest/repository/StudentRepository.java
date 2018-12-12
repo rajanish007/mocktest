@@ -13,4 +13,7 @@ public interface StudentRepository extends JpaRepository<StudentEntity, String> 
 
     @Query(value = "select * from m_student where s_uname = :username or s_email = :username",nativeQuery = true)
     public StudentEntity findUserByStudentUserName(@Param("username") String username);
+
+    @Query(value = "select * from m_student where s_id = :studentId",nativeQuery = true)
+    public StudentEntity findByStudentId(@Param("studentId") String studentId);
 }

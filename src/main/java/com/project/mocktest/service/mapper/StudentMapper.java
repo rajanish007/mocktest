@@ -36,13 +36,6 @@ public class StudentMapper {
         return sVO;
     }
 
-//    public StudentEntity convert(StudentVO sVO){
-//        Student s = new Student();
-//        s.setStudentUserName();
-//        s.setStudentPassword();
-//        s.setStudentName();
-//        s.setStudentEmail();
-//        s.setStudentId();
-//    }
+
 
 }

@@ -12,24 +12,13 @@ public class Result {
 
     private String studentId;
 
-    private int totalQuestions;
+    private double percentage;
 
-    private int correctAnswers;
+    private String status;
 
-    private Status status;
+    private String feedback;
 
-    public Result(String resultId,
-                  String testId,
-                  String studentId,
-                  int totalQuestions,
-                  int correctAnswers,
-                  Status status) {
-        this.resultId = resultId;
-        this.testId = testId;
-        this.studentId = studentId;
-        this.totalQuestions = totalQuestions;
-        this.correctAnswers = correctAnswers;
-        this.status = status;
+    public Result(){
     }
 
     public String getResultId() {
@@ -56,46 +45,28 @@ public class Result {
         this.studentId = studentId;
     }
 
-    public int getTotalQuestions() {
-        return totalQuestions;
+    public double getPercentage() {
+        return percentage;
     }
 
-    public void setTotalQuestions(int totalQuestions) {
-        this.totalQuestions = totalQuestions;
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
     }
 
-    public int getCorrectAnswers() {
-        return correctAnswers;
-    }
-
-    public void setCorrectAnswers(int correctAnswers) {
-        this.correctAnswers = correctAnswers;
-    }
-
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Result result = (Result) o;
-        return totalQuestions == result.totalQuestions &&
-                correctAnswers == result.correctAnswers &&
-                Objects.equals(resultId, result.resultId) &&
-                Objects.equals(testId, result.testId) &&
-                Objects.equals(studentId, result.studentId) &&
-                status == result.status;
+    public String getFeedback() {
+        return feedback;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(resultId, testId, studentId, totalQuestions, correctAnswers, status);
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 
     @Override
@@ -104,9 +75,28 @@ public class Result {
                 "resultId='" + resultId + '\'' +
                 ", testId='" + testId + '\'' +
                 ", studentId='" + studentId + '\'' +
-                ", totalQuestions=" + totalQuestions +
-                ", correctAnswers=" + correctAnswers +
+                ", percentage=" + percentage +
                 ", status=" + status +
+                ", feedback='" + feedback + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Result result = (Result) o;
+        return Double.compare(result.percentage, percentage) == 0 &&
+                Objects.equals(resultId, result.resultId) &&
+                Objects.equals(testId, result.testId) &&
+                Objects.equals(studentId, result.studentId) &&
+                status == result.status &&
+                Objects.equals(feedback, result.feedback);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(resultId, testId, studentId, percentage, status, feedback);
+    }
+
 }

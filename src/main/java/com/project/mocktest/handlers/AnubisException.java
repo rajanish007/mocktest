@@ -13,6 +13,8 @@ public class AnubisException {
     public AnubisException(Exception e) {
         if (e instanceof DataIntegrityViolationException) {
             this.responseEntity = new ResponseEntity(HttpStatus.METHOD_FAILURE);
+        }else{
+            this.responseEntity = new ResponseEntity((HttpStatus.UNPROCESSABLE_ENTITY));
         }
     }
 

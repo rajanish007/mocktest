@@ -5,37 +5,24 @@ import java.util.Objects;
 
 public class Test {
 
-    private String testId;
+    private long testId;
 
-    private String studentId;
+    private long studentId;
 
     private Date testDate;
 
     private String questionList;
 
-    private int testDuration;
+    private Integer testDuration;
 
-    private String feedback;
-
-    public Test(String studentId,
-                String testId,
-                Date testDate,
-                String questionList,
-                int testDuration,
-                String feedback) {
-        this.studentId = studentId;
-        this.testId = testId;
-        this.testDate = testDate;
-        this.questionList = questionList;
-        this.testDuration = testDuration;
-        this.feedback = feedback;
+    public Test() {
     }
 
-    public String getTestId() {
+    public long getTestId() {
         return testId;
     }
 
-    public void setTestId(String testId) {
+    public void setTestId(long testId) {
         this.testId = testId;
     }
 
@@ -55,27 +42,19 @@ public class Test {
         this.questionList = questionList;
     }
 
-    public int getTestDuration() {
+    public Integer getTestDuration() {
         return testDuration;
     }
 
-    public void setTestDuration(int testDuration) {
+    public void setTestDuration(Integer testDuration) {
         this.testDuration = testDuration;
     }
 
-    public String getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
-    }
-
-    public String getStudentId() {
+    public long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 
@@ -88,13 +67,12 @@ public class Test {
                 Objects.equals(testId, test.testId) &&
                 Objects.equals(studentId, test.studentId) &&
                 Objects.equals(testDate, test.testDate) &&
-                Objects.equals(questionList, test.questionList) &&
-                Objects.equals(feedback, test.feedback);
+                Objects.equals(questionList, test.questionList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(testId, studentId, testDate, questionList, testDuration, feedback);
+        return Objects.hash(testId, studentId, testDate, questionList, testDuration);
     }
 
     @Override
@@ -105,7 +83,6 @@ public class Test {
                 ", testDate=" + testDate +
                 ", questionList='" + questionList + '\'' +
                 ", testDuration=" + testDuration +
-                ", feedback='" + feedback + '\'' +
                 '}';
     }
 }

@@ -39,7 +39,6 @@ s_id bigint NOT NULL,
 t_date DATETIME NOT NULL,
 t_q_list text NOT NULL,
 t_duration int NOT NULL,
-t_feedback text DEFAULT NULL,
 PRIMARY KEY(t_id)
 );
 
@@ -47,16 +46,8 @@ create table m_result(
 r_id bigint NOT NULL,
 t_id bigint NOT NULL REFERENCES m_test(t_id),
 s_id bigint NOT NULL REFERENCES m_student(s_id),
-r_query_count bigint NOT NULL,
-r_correct_ans_count bigint NOT NULL,
+r_percentage double NOT NULL,
 status varchar(4) NOT NULL,
+t_feedback text DEFAULT NULL,
 PRIMARY KEY(r_id)
-);
-
-create table m_test_result_desc(
-t_id bigint NOT NULL REFERENCES m_test(t_id),
-r_id bigint NOT NULL REFERENCES m_result(r_id),
-q_id bigint NOT NULL REFERENCES m_student(s_id),
-ans_recieved varchar(1) NOT NULL,
-PRIMARY KEY(t_id,r_id,q_id)
 );

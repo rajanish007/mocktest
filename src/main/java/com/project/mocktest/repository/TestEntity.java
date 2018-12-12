@@ -31,22 +31,21 @@ public class TestEntity {
 
     @NotNull
     @Column(name = "t_duration")
-    private int testDuration;
+    private Integer testDuration;
 
-    @Column(name = "t_feedback")
-    private String feedback;
+    @Autowired
+    public TestEntity() {
+    }
 
     @Autowired
     public TestEntity(@NotNull long studentId,
                       @NotNull Date testDate,
                       @NotNull String questionList,
-                      @NotNull int testDuration,
-                      String feedback) {
+                      @NotNull Integer testDuration) {
         this.studentId = studentId;
         this.testDate = testDate;
         this.questionList = questionList;
         this.testDuration = testDuration;
-        this.feedback = feedback;
     }
 
     public long getTestId() {
@@ -61,16 +60,23 @@ public class TestEntity {
         return questionList;
     }
 
-    public int getTestDuration() {
+    public Integer getTestDuration() {
         return testDuration;
-    }
-
-    public String getFeedback() {
-        return feedback;
     }
 
     public long getStudentId() {
         return studentId;
+    }
+
+    @Override
+    public String toString() {
+        return "TestEntity{" +
+                "testId=" + testId +
+                ", studentId=" + studentId +
+                ", testDate=" + testDate +
+                ", questionList='" + questionList + '\'' +
+                ", testDuration=" + testDuration +
+                '}';
     }
 
     @Override
@@ -82,24 +88,12 @@ public class TestEntity {
                 studentId == that.studentId &&
                 testDuration == that.testDuration &&
                 Objects.equals(testDate, that.testDate) &&
-                Objects.equals(questionList, that.questionList) &&
-                Objects.equals(feedback, that.feedback);
+                Objects.equals(questionList, that.questionList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(testId, studentId, testDate, questionList, testDuration, feedback);
+        return Objects.hash(testId, studentId, testDate, questionList, testDuration);
     }
 
-    @Override
-    public String toString() {
-        return "TestEntity{" +
-                "testId=" + testId +
-                ", studentId=" + studentId +
-                ", testDate=" + testDate +
-                ", questionList='" + questionList + '\'' +
-                ", testDuration=" + testDuration +
-                ", feedback='" + feedback + '\'' +
-                '}';
-    }
 }
