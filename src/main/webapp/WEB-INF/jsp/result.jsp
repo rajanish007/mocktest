@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-12 text-center">
             <a href="/">
-                <button style="margin: 20px;" class="btn btn-success">Restart</button>
+                <button style="margin: 20px;" class="btn btn-success">EXIT</button>
             </a>
         </div>
     </div>

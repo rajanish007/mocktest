@@ -23,7 +23,7 @@
 <script>
     var questionList =  eval('\''+'${testDetail.questionList}'+'\'');
 </script>
-<div class="navbar navbar-light bg-dark" style="color: white;position: sticky;z-index: 100;">
+<div class="navbar navbar-light bg-dark fixed-top" style="color: white;position: sticky;z-index: 100;">
     <a class="navbar-brand">MOCKPRO</a>
     <a class="navbar-brand mx-auto">Time Left : <span id="timer" style="color: red;font-weight: bold;font-size: 26px;"></span></a>
 </div>

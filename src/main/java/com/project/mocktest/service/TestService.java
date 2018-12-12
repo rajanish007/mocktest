@@ -1,18 +1,13 @@
 package com.project.mocktest.service;
 
-import com.project.mocktest.domain.QuestionVO;
-import com.project.mocktest.domain.Result;
-import com.project.mocktest.domain.Test;
-import com.project.mocktest.domain.TestVO;
-import com.project.mocktest.repository.QuestionRepository;
-import com.project.mocktest.repository.ResultRepository;
-import com.project.mocktest.repository.TestEntity;
-import com.project.mocktest.repository.TestRepository;
+import com.project.mocktest.domain.*;
+import com.project.mocktest.repository.*;
 import com.project.mocktest.service.mapper.TestMapper;
 import com.project.mocktest.utils.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,13 +18,13 @@ public class TestService {
     private TestMapper testMapper;
 
     @Autowired
-    private QuestionRepository questionRepository;
-
-    @Autowired
     private TestRepository testRepository;
 
     @Autowired
     private ResultRepository resultRepository;
+
+    @Autowired
+    private StudentService studentService;
 
     public TestVO createNewTest(long studentId, List<QuestionVO> questionVOS) {
         Test test = new Test();
@@ -47,6 +42,20 @@ public class TestService {
 
     public Result getTestResult(String testId) {
         return testMapper.convert(resultRepository.findByTestId(testId));
+    }
+
+    public List<Result> getToppersResult() {
+        List<ResultEntity> topperResults = resultRepository.findByTopper();
+        List<Result> results = new ArrayList();
+        for (ResultEntity rEntity : topperResults) {
+            results.add(testMapper.convert(rEntity));
+        }
+        return results;
+    }
+
+    public List<Student> getToppers(List<Result> results) {
+        List<Student> toppers = studentService.findStudentsByIdsFromResult(results);
+        return toppers;
     }
 
 }

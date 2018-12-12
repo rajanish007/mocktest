@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,35 +29,25 @@
 </div>
 
 <div class="container-fluid text-center">
-    <h2><b>Student Ranking</b></h2>
+    <h2><b>RANKER's BOARD</b></h2>
     <table class="table table-dark">
         <thead>
         <tr>
             <th scope="col">Rank</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">NAME</th>
+            <th scope="col">Uername</th>
+            <th scope="col">Score</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        <c:forEach items="${ranking}" var="rank">
+            <tr>
+                <td>#${rank.rank}</td>
+                <td>${rank.name}</td>
+                <td>${rank.username}</td>
+                <td>${rank.score} %</td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>

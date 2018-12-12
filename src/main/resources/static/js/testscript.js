@@ -20,7 +20,7 @@ $(document).ready(function () {
         var payload = {
             "testId" : $("#test-id").val(),
             "studentId" : $("#student-id").val(),
-            "percentage" : scored,
+            "percentage" : scored.toFixed(2),
             "status" : scored >= 30 ? "PASS" : "FAIL",
             "feedback" : feedback,
         };
