@@ -41,7 +41,7 @@
                    data-toggle="modal" data-target="#exampleModalCenter">add_circle</i>
             </h3>
             <hr class="my-4">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">Q_ID</th>

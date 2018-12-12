@@ -30,7 +30,7 @@
 
 <div class="container-fluid text-center">
     <h2><b>RANKER's BOARD</b></h2>
-    <table class="table table-dark">
+    <table class="table table-dark table-striped">
         <thead>
         <tr>
             <th scope="col">Rank</th>
