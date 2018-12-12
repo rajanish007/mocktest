@@ -25,6 +25,7 @@
                     <h5 class="card-text">Username : ${student_profile.studentUserName}</h5>
                     <h5 class="card-text">Email : ${student_profile.studentEmail}</h5>
                     <h5 class="card-text">ID : ${student_profile.studentId}</h5>
+                    <input type="hidden" id="studentId" value=${student_profile.studentId}>
                 </div>
                 <div class="col-md-6 text-right">
                     <img src="/img/stud.png" style="width: 100px;height: 100px;">
@@ -32,10 +33,12 @@
             </div>
             <hr class="my-4">
             <div class="text-center">
-                <a href="#" class="btn btn-success" style="width: 30%;height: 30%;">BEGIN NEW TEST</a>
+                <button id="start-test" class="btn btn-success" style="width: 30%;height: 30%;">BEGIN NEW TEST</button>
             </div>
         </div>
     </div>
 </div>
 </body>
+<script type="text/javascript" src="/js/studescript.js">
+</script>
 </html>

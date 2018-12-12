@@ -26,28 +26,31 @@ public class ResultEntity {
     private String studentId;
 
     @NotNull
-    @Column(name = "r_query_count")
-    private int totalQuestions;
-
-    @NotNull
-    @Column(name = "r_correct_ans_count")
-    private int correctAnswers;
+    @Column(name = "percentage")
+    private double percentage;
 
     @NotNull
     @Column(name = "status")
-    private Status status;
+    private String status;
+
+    @Column(name = "t_feedback")
+    private String feedback;
+
+    @Autowired
+    public ResultEntity() {
+    }
 
     @Autowired
     public ResultEntity(@NotNull String testId,
                         @NotNull String studentId,
-                        @NotNull int totalQuestions,
-                        @NotNull int correctAnswers,
-                        @NotNull Status status) {
+                        @NotNull double percentage,
+                        @NotNull String status,
+                        String feedback) {
         this.testId = testId;
         this.studentId = studentId;
-        this.totalQuestions = totalQuestions;
-        this.correctAnswers = correctAnswers;
+        this.percentage = percentage;
         this.status = status;
+        this.feedback = feedback;
     }
 
     public long getResultId() {
@@ -62,16 +65,28 @@ public class ResultEntity {
         return studentId;
     }
 
-    public int getTotalQuestions() {
-        return totalQuestions;
+    public double getPercentage() {
+        return percentage;
     }
 
-    public int getCorrectAnswers() {
-        return correctAnswers;
+    public String getFeedback() {
+        return feedback;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
+    }
+
+    @Override
+    public String toString() {
+        return "ResultEntity{" +
+                "resultId=" + resultId +
+                ", testId='" + testId + '\'' +
+                ", studentId='" + studentId + '\'' +
+                ", percentage=" + percentage +
+                ", status=" + status +
+                ", feedback='" + feedback + '\'' +
+                '}';
     }
 
     @Override
@@ -79,28 +94,17 @@ public class ResultEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ResultEntity that = (ResultEntity) o;
-        return totalQuestions == that.totalQuestions &&
-                correctAnswers == that.correctAnswers &&
-                Objects.equals(resultId, that.resultId) &&
+        return resultId == that.resultId &&
+                Double.compare(that.percentage, percentage) == 0 &&
                 Objects.equals(testId, that.testId) &&
                 Objects.equals(studentId, that.studentId) &&
-                status == that.status;
+                status == that.status &&
+                Objects.equals(feedback, that.feedback);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(resultId, testId, studentId, totalQuestions, correctAnswers, status);
+        return Objects.hash(resultId, testId, studentId, percentage, status, feedback);
     }
 
-    @Override
-    public String toString() {
-        return "ResultEntity{" +
-                "resultId='" + resultId + '\'' +
-                ", testId='" + testId + '\'' +
-                ", studentId='" + studentId + '\'' +
-                ", totalQuestions=" + totalQuestions +
-                ", correctAnswers=" + correctAnswers +
-                ", status=" + status +
-                '}';
-    }
 }
