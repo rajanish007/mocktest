@@ -18,6 +18,7 @@
 <jsp:include page="header.jsp"/>
 <jsp:include page="new_querie_modal.jsp"/>
 <jsp:include page="alert.jsp"/>
+<jsp:include page="feeback_modal.jsp" />
 <div class="container">
     <div class="card" style="margin-top: 10px;">
         <img class="card-img-top" src="/img/mcq.jpg" alt="Card image cap" style="height: 30vh;">
@@ -28,6 +29,7 @@
                     <h5 class="card-text">Username : ${faculty_profile.facultyUserName}</h5>
                     <h5 class="card-text">Email : ${faculty_profile.facultyEmail}</h5>
                     <h5 class="card-text" id="faculty-id">ID : ${faculty_profile.facultyId}</h5>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Show Feedbacks</button>
                 </div>
                 <div class="col-md-6 text-right">
                     <img src="/img/fac.jpg" style="width: 100px;height: 100px;">

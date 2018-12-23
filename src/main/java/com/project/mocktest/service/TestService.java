@@ -58,4 +58,13 @@ public class TestService {
         return toppers;
     }
 
+    public List<Result> getAllResults(){
+        List<ResultEntity> resultEntities = resultRepository.findAll();
+        List<Result> results = new ArrayList<>();
+        for(ResultEntity resultEntity : resultEntities){
+            results.add(testMapper.convert(resultEntity));
+        }
+        return results;
+    }
+
 }
