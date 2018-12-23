@@ -20,6 +20,10 @@ public class QuestionVO {
 
     private long questionId;
 
+    private int totalAttempts;
+
+    private int correctAttempts;
+
     public String getFaculty_Id() {
         return faculty_Id;
     }
@@ -90,5 +94,21 @@ public class QuestionVO {
 
     public void setQuestionId(long questionId) {
         this.questionId = questionId;
+    }
+
+    public int getTotalAttempts() {
+        return totalAttempts;
+    }
+
+    public void setTotalAttempts(int totalAttempts) {
+        this.totalAttempts = totalAttempts;
+    }
+
+    public int getCorrectAttempts() {
+        return correctAttempts;
+    }
+
+    public void setCorrectAttempts(int correctAttempts) {
+        this.correctAttempts = correctAttempts;
     }
 }

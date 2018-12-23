@@ -15,4 +15,7 @@ public interface QuestionRepository extends JpaRepository<QuestionEntity,String>
 
     @Query(value = "select * from m_querie order by rand() limit 10",nativeQuery = true)
     public List<QuestionEntity> findByRandom();
+
+    @Query(value = "select * from m_querie where q_id = :questionId",nativeQuery = true)
+    public QuestionEntity findByQuestionId(@Param("questionId") long questionId);
 }

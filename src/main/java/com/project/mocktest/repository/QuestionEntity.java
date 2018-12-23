@@ -29,7 +29,7 @@ public class QuestionEntity {
     private String correctAnswer;
 
     @NotNull
-    @Column(name = "q_desc",unique = true)
+    @Column(name = "q_desc", unique = true)
     private String description;
 
     @NotNull
@@ -48,6 +48,12 @@ public class QuestionEntity {
     @Column(name = "q_fourth_ans")
     private String fourthAnswer;
 
+    @Column(name = "q_total_attempts", columnDefinition = "int default '0'")
+    private Integer totalAttempts;
+
+    @Column(name = "q_correct_attempts", columnDefinition = "int default '0'")
+    private Integer correctAttempts;
+
     @Autowired
     public QuestionEntity() {
     }
@@ -60,7 +66,9 @@ public class QuestionEntity {
                           @NotNull String firstAnswer,
                           @NotNull String secondAnswer,
                           @NotNull String thirdAnswer,
-                          @NotNull String fourthAnswer) {
+                          @NotNull String fourthAnswer,
+                          int totalAttempts,
+                          int correctAttempts) {
         this.faculty_Id = faculty_Id;
         this.timeAllocated = timeAllocated;
         this.correctAnswer = correctAnswer;
@@ -69,6 +77,8 @@ public class QuestionEntity {
         this.secondAnswer = secondAnswer;
         this.thirdAnswer = thirdAnswer;
         this.fourthAnswer = fourthAnswer;
+        this.totalAttempts = totalAttempts;
+        this.correctAttempts = correctAttempts;
     }
 
     public long getQuestionId() {
@@ -107,32 +117,44 @@ public class QuestionEntity {
         return fourthAnswer;
     }
 
+    public void setTotalAttempts(Integer totalAttempts) {
+        this.totalAttempts = totalAttempts;
+    }
+
+    public void setCorrectAttempts(Integer correctAttempts) {
+        this.correctAttempts = correctAttempts;
+    }
+
+    public Integer getTotalAttempts() {
+        return totalAttempts;
+    }
+
+    public Integer getCorrectAttempts() {
+        return correctAttempts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuestionEntity that = (QuestionEntity) o;
-        return timeAllocated == that.timeAllocated &&
-                Objects.equals(questionId, that.questionId) &&
+        return questionId == that.questionId &&
+                timeAllocated == that.timeAllocated &&
                 Objects.equals(faculty_Id, that.faculty_Id) &&
                 Objects.equals(correctAnswer, that.correctAnswer) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(firstAnswer, that.firstAnswer) &&
                 Objects.equals(secondAnswer, that.secondAnswer) &&
                 Objects.equals(thirdAnswer, that.thirdAnswer) &&
-                Objects.equals(fourthAnswer, that.fourthAnswer);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(questionId, faculty_Id, timeAllocated, correctAnswer,
-                description, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
+                Objects.equals(fourthAnswer, that.fourthAnswer) &&
+                Objects.equals(totalAttempts, that.totalAttempts) &&
+                Objects.equals(correctAttempts, that.correctAttempts);
     }
 
     @Override
     public String toString() {
         return "QuestionEntity{" +
-                "questionId='" + questionId + '\'' +
+                "questionId=" + questionId +
                 ", faculty_Id='" + faculty_Id + '\'' +
                 ", timeAllocated=" + timeAllocated +
                 ", correctAnswer='" + correctAnswer + '\'' +
@@ -141,6 +163,14 @@ public class QuestionEntity {
                 ", secondAnswer='" + secondAnswer + '\'' +
                 ", thirdAnswer='" + thirdAnswer + '\'' +
                 ", fourthAnswer='" + fourthAnswer + '\'' +
+                ", totalAttempts=" + totalAttempts +
+                ", correctAttempts=" + correctAttempts +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(questionId, faculty_Id, timeAllocated, correctAnswer, description, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, totalAttempts, correctAttempts);
+    }
+
 }

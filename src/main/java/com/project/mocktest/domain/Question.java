@@ -22,6 +22,10 @@ public class Question {
 
     private String fourthAnswer;
 
+    private int totalAttempts;
+
+    private int correctAttempts;
+
     public Question() {
     }
 
@@ -97,25 +101,16 @@ public class Question {
         this.questionId = questionId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Question question = (Question) o;
-        return questionId == question.questionId &&
-                timeAllocated == question.timeAllocated &&
-                Objects.equals(faculty_Id, question.faculty_Id) &&
-                Objects.equals(correctAnswer, question.correctAnswer) &&
-                Objects.equals(description, question.description) &&
-                Objects.equals(firstAnswer, question.firstAnswer) &&
-                Objects.equals(secondAnswer, question.secondAnswer) &&
-                Objects.equals(thirdAnswer, question.thirdAnswer) &&
-                Objects.equals(fourthAnswer, question.fourthAnswer);
+    public int getTotalAttempts() {
+        return totalAttempts;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(questionId, faculty_Id, timeAllocated, correctAnswer, description, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer);
+    public void setTotalAttempts(int totalAttempts) {
+        this.totalAttempts = totalAttempts;
+    }
+
+    public int getCorrectAttempts() {
+        return correctAttempts;
     }
 
     @Override
@@ -130,6 +125,36 @@ public class Question {
                 ", secondAnswer='" + secondAnswer + '\'' +
                 ", thirdAnswer='" + thirdAnswer + '\'' +
                 ", fourthAnswer='" + fourthAnswer + '\'' +
+                ", totalAttempts=" + totalAttempts +
+                ", correctAttempts=" + correctAttempts +
                 '}';
     }
+
+    public void setCorrectAttempts(int correctAttempts) {
+        this.correctAttempts = correctAttempts;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question = (Question) o;
+        return questionId == question.questionId &&
+                timeAllocated == question.timeAllocated &&
+                totalAttempts == question.totalAttempts &&
+                correctAttempts == question.correctAttempts &&
+                Objects.equals(faculty_Id, question.faculty_Id) &&
+                Objects.equals(correctAnswer, question.correctAnswer) &&
+                Objects.equals(description, question.description) &&
+                Objects.equals(firstAnswer, question.firstAnswer) &&
+                Objects.equals(secondAnswer, question.secondAnswer) &&
+                Objects.equals(thirdAnswer, question.thirdAnswer) &&
+                Objects.equals(fourthAnswer, question.fourthAnswer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(questionId, faculty_Id, timeAllocated, correctAnswer, description, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, totalAttempts, correctAttempts);
+    }
+
 }

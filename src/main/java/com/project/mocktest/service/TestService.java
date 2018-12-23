@@ -26,6 +26,9 @@ public class TestService {
     @Autowired
     private StudentService studentService;
 
+    @Autowired
+    private QuestionRepository questionRepository;
+
     public TestVO createNewTest(long studentId, List<QuestionVO> questionVOS) {
         Test test = new Test();
         test.setTestDuration(Utilities.addList(questionVOS));
@@ -58,13 +61,17 @@ public class TestService {
         return toppers;
     }
 
-    public List<Result> getAllResults(){
-        List<ResultEntity> resultEntities = resultRepository.findAll();
-        List<Result> results = new ArrayList<>();
-        for(ResultEntity resultEntity : resultEntities){
-            results.add(testMapper.convert(resultEntity));
+    public void setTestWatcher(List<QuerieWatcherVO> querieWatcherVOS) {
+        List<QuestionEntity> qToUpdate = new ArrayList<>();
+        for (QuerieWatcherVO qVO : querieWatcherVOS) {
+            QuestionEntity questionEntity = questionRepository.findByQuestionId(Long.parseLong(qVO.getQuestionId()));
+            questionEntity.setCorrectAttempts(qVO.getQuerieResponse().equals(questionEntity.getCorrectAnswer()) == true
+                    ? questionEntity.getCorrectAttempts() + 1
+                    : questionEntity.getCorrectAttempts());
+            questionEntity.setTotalAttempts(questionEntity.getTotalAttempts() + 1);
+            qToUpdate.add(questionEntity);
         }
-        return results;
+        questionRepository.saveAll(qToUpdate);
     }
 
 }

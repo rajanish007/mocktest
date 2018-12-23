@@ -51,3 +51,6 @@ status varchar(4) NOT NULL,
 t_feedback text DEFAULT NULL,
 PRIMARY KEY(r_id)
 );
+
+alter table mocktest.m_querie add column q_correct_attempts int default '0';
+alter table mocktest.m_querie add column q_total_attempts int default '0';
