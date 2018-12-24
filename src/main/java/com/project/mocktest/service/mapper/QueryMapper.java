@@ -19,13 +19,15 @@ public class QueryMapper {
         q.setFourthAnswer(qEntity.getFourthAnswer());
         q.setTimeAllocated(qEntity.getTimeAllocated());
         q.setQuestionId(qEntity.getQuestionId());
+        q.setTotalAttempts(qEntity.getTotalAttempts());
+        q.setCorrectAttempts(qEntity.getCorrectAttempts());
         return q;
     }
 
     public QuestionEntity convert(Question q) {
         QuestionEntity questionEntity = new QuestionEntity(q.getFaculty_Id(),
                 q.getTimeAllocated(), q.getCorrectAnswer(), q.getDescription(),
-                q.getFirstAnswer(), q.getSecondAnswer(), q.getThirdAnswer(), q.getFourthAnswer());
+                q.getFirstAnswer(), q.getSecondAnswer(), q.getThirdAnswer(), q.getFourthAnswer(),0,0);
         return questionEntity;
     }
 
@@ -41,6 +43,8 @@ public class QueryMapper {
         qVO.setFourthAnswer(q.getFourthAnswer());
         qVO.setTimeAllocated(q.getTimeAllocated());
         qVO.setQuestionId(q.getQuestionId());
+        qVO.setCorrectAttempts(q.getCorrectAttempts());
+        qVO.setTotalAttempts(q.getTotalAttempts());
         return qVO;
     }
 

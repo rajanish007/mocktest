@@ -37,6 +37,7 @@
             <th scope="col">NAME</th>
             <th scope="col">Uername</th>
             <th scope="col">Score</th>
+            <th scope="col">Feedback</th>
         </tr>
         </thead>
         <tbody>
@@ -46,6 +47,7 @@
                 <td>${rank.name}</td>
                 <td>${rank.username}</td>
                 <td>${rank.score} %</td>
+                <td>${rank.feedback}</td>
             </tr>
         </c:forEach>
         </tbody>
