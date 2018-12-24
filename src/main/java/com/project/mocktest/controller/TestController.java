@@ -1,5 +1,6 @@
 package com.project.mocktest.controller;
 
+import com.project.mocktest.domain.QuerieWatcherVO;
 import com.project.mocktest.domain.QuestionVO;
 import com.project.mocktest.domain.Result;
 import com.project.mocktest.domain.TestVO;
@@ -44,10 +45,20 @@ public class TestController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/result",method = RequestMethod.GET)
-    public String getResult(@RequestParam("testId") String testId,ModelMap map){
-        map.addAttribute("result",testService.getTestResult(testId));
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    public String getResult(@RequestParam("testId") String testId, ModelMap map) {
+        map.addAttribute("result", testService.getTestResult(testId));
         return "result";
+    }
+
+    @RequestMapping(value = "/watcher", method = RequestMethod.POST)
+    public ResponseEntity setWatcher(@RequestBody List<QuerieWatcherVO> queryList) {
+        try {
+            testService.setTestWatcher(queryList);
+        } catch (Exception e) {
+            return new AnubisException(e).getResponseEntity();
+        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

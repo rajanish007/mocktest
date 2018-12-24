@@ -10,6 +10,8 @@ public class RankBoardVO {
 
     private double score;
 
+    private String feedback;
+
     public String getName() {
         return name;
     }
@@ -40,5 +42,13 @@ public class RankBoardVO {
 
     public void setScore(double score) {
         this.score = score;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 }
