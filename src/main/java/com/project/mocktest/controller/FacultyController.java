@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * FACULTY CONTROLLER
+ */
 @Controller
 @RequestMapping(value = "/faculty")
 public class FacultyController {
@@ -23,11 +26,17 @@ public class FacultyController {
 
     private final Logger logger;
 
+
     @Autowired
     FacultyController(@Qualifier(MockConstants.LOG_QUALIFIER) Logger logger) {
         this.logger = logger;
     }
 
+    /**
+     * Faculty Registration
+     * @param faculty
+     * @return HttpStatus
+     */
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity registerFaculty(@RequestBody Faculty faculty) {
         try {

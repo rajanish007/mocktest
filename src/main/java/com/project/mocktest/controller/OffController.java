@@ -1,11 +1,7 @@
 package com.project.mocktest.controller;
 
-import com.project.mocktest.constant.MockConstants;
-import com.project.mocktest.handlers.AnubisException;
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +12,11 @@ public class OffController implements ErrorController {
 
     private static final String PATH = "/error";
 
+    /**
+     * Erro Handler
+     * @param request
+     * @return
+     */
     @RequestMapping(value = PATH)
     @ResponseBody
     public String handleError(HttpServletRequest request) {
