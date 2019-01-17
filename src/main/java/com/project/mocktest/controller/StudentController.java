@@ -28,6 +28,12 @@ public class StudentController {
         this.logger = logger;
     }
 
+    /**
+     * New Student Registration
+     *
+     * @param student
+     * @return
+     */
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity registerStudent(@RequestBody Student student) {
         try {

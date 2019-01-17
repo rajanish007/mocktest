@@ -10,12 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * HOME CONTROLLER
+ */
 @Controller
 public class HomeContoller {
 
     @Autowired
     private HomeService homeService;
 
+    /**
+     * Home View Parameter Providerr
+     * @param map
+     * @return view
+     */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String getHome(ModelMap map) {
         List<RankBoardVO> ranking = homeService.getRankBoard();
