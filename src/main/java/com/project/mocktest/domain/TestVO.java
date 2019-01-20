@@ -2,6 +2,9 @@ package com.project.mocktest.domain;
 
 import java.util.Date;
 
+/**
+ * TEST VIEW OBJECT
+ */
 public class TestVO {
 
     private long testId;

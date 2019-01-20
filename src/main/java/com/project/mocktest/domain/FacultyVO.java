@@ -1,5 +1,9 @@
 package com.project.mocktest.domain;
 
+
+/**
+ * FACULTY VIEW OBJECT
+ */
 public class FacultyVO {
 
     private long facultyId;

@@ -1,13 +1,14 @@
 package com.project.mocktest.repository;
 
-import com.project.mocktest.constant.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
-import java.util.UUID;
 
+/**
+ * RESULT ENTITY
+ */
 @Entity
 @Table(name = "m_result")
 public class ResultEntity {

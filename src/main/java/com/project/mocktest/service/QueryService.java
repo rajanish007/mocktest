@@ -24,11 +24,22 @@ public class QueryService {
     @Autowired
     private FacultyRepository facultyRepository;
 
+    /**
+     * CREATE NEW QUERY
+     *
+     * @param q
+     */
     public void createQuery(Question q) {
         QuestionEntity qEntity = queryMapper.convert(q);
         questionRepository.save(qEntity);
     }
 
+    /**
+     * GET QUERIES RELATED TO FACULTY
+     *
+     * @param facultyName
+     * @return
+     */
     public List<QuestionVO> getForFaculty(String facultyName) {
         List<QuestionEntity> questionEntities = questionRepository.findByFacultyId(facultyRepository.findFacultyIdFromName(facultyName));
         List<QuestionVO> questionVOS = new ArrayList();
@@ -38,10 +49,15 @@ public class QueryService {
         return questionVOS;
     }
 
-    public List<QuestionVO> getRandomQueries(){
+    /**
+     * GET TEST QUERIES
+     *
+     * @return
+     */
+    public List<QuestionVO> getRandomQueries() {
         List<QuestionEntity> questionEntities = questionRepository.findByRandom();
         List<QuestionVO> questionVOS = new ArrayList();
-        for(QuestionEntity qEntity : questionEntities){
+        for (QuestionEntity qEntity : questionEntities) {
             questionVOS.add(queryMapper.convertToVO(qEntity));
         }
         return questionVOS;

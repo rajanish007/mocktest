@@ -1,9 +1,10 @@
 package com.project.mocktest.domain;
 
-import com.project.mocktest.constant.Status;
-
 import java.util.Objects;
 
+/**
+ * RESULT DTO
+ */
 public class Result {
 
     private String resultId;
@@ -18,7 +19,7 @@ public class Result {
 
     private String feedback;
 
-    public Result(){
+    public Result() {
     }
 
     public String getResultId() {

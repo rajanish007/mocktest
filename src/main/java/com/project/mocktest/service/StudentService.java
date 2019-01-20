@@ -21,17 +21,34 @@ public class StudentService {
     @Autowired
     private StudentMapper studentMapper;
 
+    /**
+     * CREATE STUDENT
+     *
+     * @param student
+     */
     public void createStudent(Student student) {
         StudentEntity studentEntity = studentMapper.convert(student);
         studentRepository.save(studentEntity);
     }
 
+    /**
+     * GET STUDENT PROFILE
+     *
+     * @param userName
+     * @return
+     */
     public StudentVO getStudent(String userName) {
         StudentEntity studentEntity = studentRepository.findUserByStudentUserName(userName);
         StudentVO studentVO = studentMapper.convertToVO(studentEntity);
         return studentVO;
     }
 
+    /**
+     * FETCH STUDENT BY ID FROM RESULTS
+     *
+     * @param results
+     * @return
+     */
     public List<Student> findStudentsByIdsFromResult(List<Result> results) {
         List<Student> students = new ArrayList();
         for (Result result : results) {

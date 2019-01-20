@@ -1,5 +1,8 @@
 package com.project.mocktest.domain;
 
+/**
+ * RANK BOARD VIEW OBJECT
+ */
 public class RankBoardVO {
 
     private String name;

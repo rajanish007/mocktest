@@ -1,5 +1,8 @@
 package com.project.mocktest.domain;
 
+/**
+ * QUESTION VIEW OBJECT
+ */
 public class QuestionVO {
 
     private String faculty_Id;

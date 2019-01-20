@@ -9,6 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentMapper {
 
+    /**
+     * STUDENT ENTITY TO DTO MAPPER
+     *
+     * @param sEntity
+     * @return
+     */
     public Student convert(StudentEntity sEntity) {
         Student s = new Student();
         s.setStudentEmail(sEntity.getStudentEmail());
@@ -19,6 +25,12 @@ public class StudentMapper {
         return s;
     }
 
+    /**
+     * STUDENT DTO TO ENTITY MAPPER
+     *
+     * @param s
+     * @return
+     */
     public StudentEntity convert(Student s) {
         return new StudentEntity(s.getStudentName(),
                 Utilities.Bas64encode(s.getStudentPassword()),
@@ -26,7 +38,13 @@ public class StudentMapper {
                 s.getStudentEmail());
     }
 
-    public StudentVO convertToVO(StudentEntity sEntity){
+    /**
+     * STUDENT ENTITY TO VO MAPPER
+     *
+     * @param sEntity
+     * @return
+     */
+    public StudentVO convertToVO(StudentEntity sEntity) {
         Student s = convert(sEntity);
         StudentVO sVO = new StudentVO();
         sVO.setStudentEmail(s.getStudentEmail());
@@ -35,7 +53,6 @@ public class StudentMapper {
         sVO.setStudentUserName(s.getStudentUserName());
         return sVO;
     }
-
 
 
 }

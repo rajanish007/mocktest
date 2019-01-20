@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LoginService {
+
     @Autowired
     StudentRepository studentRepository;
 
@@ -26,6 +27,14 @@ public class LoginService {
         this.logger = logger;
     }
 
+    /**
+     * USER AUTHENTICATION SERVICE FOR FACULTY AND STUDENT
+     *
+     * @param username
+     * @param password
+     * @param isFaculty
+     * @return
+     */
     public boolean userAuthenticated(String username, String password, boolean isFaculty) {
         if (isFaculty) {
             FacultyEntity pFaculty = facultyRepository.findUserByUsernameAndPassword(username, Utilities.Bas64encode(password));

@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * TEST ENTITY
+ */
 @Entity
 @Table(name = "m_test")
 public class TestEntity {

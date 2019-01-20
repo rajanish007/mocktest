@@ -8,6 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class QueryMapper {
 
+
+    /**
+     * QUERY ENTITY TO DTO MAPPER
+     *
+     * @param qEntity
+     * @return
+     */
     public Question convert(QuestionEntity qEntity) {
         Question q = new Question();
         q.setCorrectAnswer(qEntity.getCorrectAnswer());
@@ -24,13 +31,25 @@ public class QueryMapper {
         return q;
     }
 
+    /**
+     * QUERY DTO TO ENTITY MAPPER
+     *
+     * @param q
+     * @return
+     */
     public QuestionEntity convert(Question q) {
         QuestionEntity questionEntity = new QuestionEntity(q.getFaculty_Id(),
                 q.getTimeAllocated(), q.getCorrectAnswer(), q.getDescription(),
-                q.getFirstAnswer(), q.getSecondAnswer(), q.getThirdAnswer(), q.getFourthAnswer(),0,0);
+                q.getFirstAnswer(), q.getSecondAnswer(), q.getThirdAnswer(), q.getFourthAnswer(), 0, 0);
         return questionEntity;
     }
 
+    /**
+     * QUERY ENTITY TO VO MAPPER
+     *
+     * @param qEntity
+     * @return
+     */
     public QuestionVO convertToVO(QuestionEntity qEntity) {
         Question q = convert(qEntity);
         QuestionVO qVO = new QuestionVO();

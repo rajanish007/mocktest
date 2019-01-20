@@ -29,6 +29,13 @@ public class TestService {
     @Autowired
     private QuestionRepository questionRepository;
 
+    /**
+     * NEW TEST GENERATOR
+     *
+     * @param studentId
+     * @param questionVOS
+     * @return
+     */
     public TestVO createNewTest(long studentId, List<QuestionVO> questionVOS) {
         Test test = new Test();
         test.setTestDuration(Utilities.addList(questionVOS));
@@ -39,14 +46,30 @@ public class TestService {
         return testMapper.convertToVO(testMapper.convert(savedEntity));
     }
 
+    /**
+     * NEW TEST RESULT GENERATOR
+     *
+     * @param result
+     */
     public void createNewTestResult(Result result) {
         resultRepository.save(testMapper.convert(result));
     }
 
+    /**
+     * FETCH TEST RESULT
+     *
+     * @param testId
+     * @return
+     */
     public Result getTestResult(String testId) {
         return testMapper.convert(resultRepository.findByTestId(testId));
     }
 
+    /**
+     * GET TOPPERS RESULTS
+     *
+     * @return
+     */
     public List<Result> getToppersResult() {
         List<ResultEntity> topperResults = resultRepository.findByTopper();
         List<Result> results = new ArrayList();
@@ -56,11 +79,22 @@ public class TestService {
         return results;
     }
 
+    /**
+     * GET TOPPERS
+     *
+     * @param results
+     * @return
+     */
     public List<Student> getToppers(List<Result> results) {
         List<Student> toppers = studentService.findStudentsByIdsFromResult(results);
         return toppers;
     }
 
+    /**
+     * TEST WATCHER
+     *
+     * @param querieWatcherVOS
+     */
     public void setTestWatcher(List<QuerieWatcherVO> querieWatcherVOS) {
         List<QuestionEntity> qToUpdate = new ArrayList<>();
         for (QuerieWatcherVO qVO : querieWatcherVOS) {

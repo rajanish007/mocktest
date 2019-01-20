@@ -17,11 +17,22 @@ public class FacultyService {
     @Autowired
     private FacultyMapper facultyMapper;
 
+    /**
+     * CREATE FACULTY
+     *
+     * @param faculty
+     */
     public void createFaculty(Faculty faculty) {
         FacultyEntity facultyEntity = facultyMapper.convert(faculty);
         facultyRepository.save(facultyEntity);
     }
 
+    /**
+     * GET FACULTY
+     *
+     * @param userName
+     * @return
+     */
     public FacultyVO getFaculty(String userName) {
         FacultyEntity facultyEntity = facultyRepository.findUserByfacultyUserName(userName);
         FacultyVO facultyVO = facultyMapper.convertToVO(facultyEntity);

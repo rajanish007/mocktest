@@ -1,5 +1,8 @@
 package com.project.mocktest.domain;
 
+/**
+ * STUDENT VIEW OBJECT
+ */
 public class StudentVO {
 
     private long studentId;

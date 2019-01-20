@@ -15,6 +15,11 @@ public class HomeService {
     @Autowired
     private TestService testService;
 
+    /**
+     * GET RANK BOARD FOR HOME PAGE
+     *
+     * @return
+     */
     public List<RankBoardVO> getRankBoard() {
         List<Result> resultList = testService.getToppersResult();
         List<Student> studentList = testService.getToppers(resultList);

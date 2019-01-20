@@ -10,6 +10,10 @@ public class AnubisException {
 
     private ResponseEntity responseEntity;
 
+    /**
+     * EXCEPTION HANDLER
+     * @param e
+     */
     public AnubisException(Exception e) {
         if (e instanceof DataIntegrityViolationException) {
             this.responseEntity = new ResponseEntity(HttpStatus.METHOD_FAILURE);

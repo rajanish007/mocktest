@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
-import java.util.UUID;
 
+/**
+ * FACULTY ENTITY
+ */
 @Entity
 @Table(name = "m_faculty")
 public class FacultyEntity {
@@ -29,7 +31,7 @@ public class FacultyEntity {
     private String facultyUserName;
 
     @NotNull
-    @Column(name = "f_email",unique = true)
+    @Column(name = "f_email", unique = true)
     private String facultyEmail;
 
     @Autowired

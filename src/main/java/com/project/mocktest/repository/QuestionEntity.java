@@ -7,6 +7,9 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * QUESTION ENTITY
+ */
 @Entity
 @Table(name = "m_querie")
 public class QuestionEntity {

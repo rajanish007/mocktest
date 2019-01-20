@@ -3,6 +3,9 @@ package com.project.mocktest.domain;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ *TEST DTO
+ */
 public class Test {
 
     private long testId;

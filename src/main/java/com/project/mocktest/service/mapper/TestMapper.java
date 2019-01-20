@@ -5,24 +5,28 @@ import com.project.mocktest.domain.Test;
 import com.project.mocktest.domain.TestVO;
 import com.project.mocktest.repository.ResultEntity;
 import com.project.mocktest.repository.TestEntity;
-import com.project.mocktest.repository.TestRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TestMapper {
 
-    @Autowired
-    private TestRepository testRepository;
-
-    @Autowired
-    private TestMapper testMapper;
-
+    /**
+     * TEST DTO TO ENTITY MAPPER
+     *
+     * @param test
+     * @return
+     */
     public TestEntity convert(Test test) {
         return new TestEntity(test.getStudentId(), test.getTestDate(),
                 test.getQuestionList(), test.getTestDuration());
     }
 
+    /**
+     * TEST ENTITY TO DTO MAPPER
+     *
+     * @param testEntity
+     * @return
+     */
     public Test convert(TestEntity testEntity) {
         Test test = new Test();
         test.setStudentId(testEntity.getStudentId());
@@ -33,6 +37,12 @@ public class TestMapper {
         return test;
     }
 
+    /**
+     * TEST DTO TO VO MAPPER
+     *
+     * @param test
+     * @return
+     */
     public TestVO convertToVO(Test test) {
         TestVO testVO = new TestVO();
         testVO.setQuestionList(test.getQuestionList());
@@ -43,11 +53,23 @@ public class TestMapper {
         return testVO;
     }
 
+    /**
+     * RESULT DTO TO ENTITY MAPPER
+     *
+     * @param result
+     * @return
+     */
     public ResultEntity convert(Result result) {
         return new ResultEntity(result.getTestId(), result.getStudentId(),
                 result.getPercentage(), result.getStatus(), result.getFeedback());
     }
 
+    /**
+     * RESULT ENTITY TO DTO MAPPER
+     *
+     * @param resultEntity
+     * @return
+     */
     public Result convert(ResultEntity resultEntity) {
         Result result = new Result();
         result.setFeedback(resultEntity.getFeedback());

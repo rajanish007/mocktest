@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class FacultyMapper {
 
+    /**
+     * FACULTY ENTITY TO DTO MAPPER
+     *
+     * @param fEntity
+     * @return
+     */
     public Faculty convert(FacultyEntity fEntity) {
         Faculty f = new Faculty();
         f.setFacultyEmail(fEntity.getFacultyEmail());
@@ -19,6 +25,12 @@ public class FacultyMapper {
         return f;
     }
 
+    /**
+     * FACULTY DTO TO ENTITY MAPPER
+     *
+     * @param s
+     * @return
+     */
     public FacultyEntity convert(Faculty s) {
         return new FacultyEntity(s.getFacultyName(),
                 Utilities.Bas64encode(s.getFacultyPassword()),
@@ -26,6 +38,12 @@ public class FacultyMapper {
                 s.getFacultyEmail());
     }
 
+    /**
+     * FACULTY DTO TO VO MAPPER
+     *
+     * @param fEntity
+     * @return
+     */
     public FacultyVO convertToVO(FacultyEntity fEntity) {
         Faculty s = convert(fEntity);
         FacultyVO fVO = new FacultyVO();

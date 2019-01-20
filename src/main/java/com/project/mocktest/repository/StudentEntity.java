@@ -7,6 +7,9 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * STUDENT ENTITY
+ */
 @Entity
 @Table(name = "m_student")
 public class StudentEntity {

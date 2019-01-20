@@ -2,6 +2,9 @@ package com.project.mocktest.domain;
 
 import java.util.Objects;
 
+/**
+ * QUESTION DTO
+ */
 public class Question {
 
     private long questionId;
