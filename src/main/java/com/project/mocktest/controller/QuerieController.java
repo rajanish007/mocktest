@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/querie")
@@ -37,5 +38,22 @@ public class QuerieController {
         }
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    /**
+     * Querie Delete Service
+     *
+     * @param qid
+     * @return
+     */
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public ResponseEntity deleteQuerie(@RequestParam("qid") Long qid) {
+        try {
+            queryService.deleteQuery(qid);
+        } catch (Exception e) {
+            return new AnubisException(e).getResponseEntity();
+        }
+        return new ResponseEntity((HttpStatus.OK));
+    }
+
 
 }

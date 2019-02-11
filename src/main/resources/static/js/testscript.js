@@ -1,8 +1,8 @@
 var startTime;
 $(document).ready(function () {
+
     $("#test-form").submit(function (event) {
         event.preventDefault();
-        console.log(payload);
         $("#feedback-modal").modal("hide");
         var questions = questionList.split(',');
         var totalScore = questions.length * 10;
@@ -29,6 +29,10 @@ $(document).ready(function () {
         post(window.location.origin + "/test/watcher", JSON.stringify(watcher));
         post(window.location.origin + "/test/new/result", JSON.stringify(payload));
         window.location.replace(window.location.origin + "/test/result?testId=" + $("#test-id").val());
+    });
+
+    $("#force-finish").click(function () {
+        $("#feedback-modal").modal("show");
     });
 
     startTime = new Date().getTime();

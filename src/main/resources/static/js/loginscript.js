@@ -43,7 +43,7 @@ $(document).ready(function () {
             warning("Password Mismatch !");
             return;
         } else if ($("#inputPassword1").val().length < 5 || $("#inputPassword1").val().length > 20) {
-            warning("Username length must be maximum 5-20 characters !");
+            warning("Password length must be maximum 5-20 characters !");
         } else {
             var data = toJSONString(this);
             var url = window.location.origin;

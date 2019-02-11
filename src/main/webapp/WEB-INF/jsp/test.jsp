@@ -111,6 +111,9 @@
         </div>
 
     </form>
+    <div class="col-md-12 text-center" style="margin: 10px;">
+        <input id="force-finish" type="button" class="btn btn-success" value="Finish Test">
+    </div>
 </div>
 </body>
 <script type="text/javascript" src="/js/testscript.js"></script>

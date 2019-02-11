@@ -11,7 +11,7 @@ import java.util.List;
  * QUESTION REPOSITORY
  */
 @Repository
-public interface QuestionRepository extends JpaRepository<QuestionEntity,String> {
+public interface QuestionRepository extends JpaRepository<QuestionEntity,Long> {
 
     @Query(value = "select * from m_querie where f_id = :facultyID",nativeQuery = true)
     public List<QuestionEntity> findByFacultyId(@Param("facultyID") String facultyID);

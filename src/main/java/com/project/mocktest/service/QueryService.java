@@ -63,4 +63,8 @@ public class QueryService {
         return questionVOS;
     }
 
+    public void deleteQuery(Long queryId){
+        questionRepository.deleteById(queryId);
+    }
+
 }

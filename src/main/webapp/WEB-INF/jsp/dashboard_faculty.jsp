@@ -45,7 +45,7 @@
                    data-toggle="modal" data-target="#exampleModalCenter">add_circle</i>
             </h3>
             <hr class="my-4">
-            <table class="table table-striped">
+            <table class="table table-striped" id="querie_table">
                 <thead>
                 <tr>
                     <th scope="col">Q_ID</th>
@@ -57,12 +57,13 @@
                     <th scope="col">D</th>
                     <th scope="col">Ans</th>
                     <th scope="col">Difficulty</th>
+                    <th scope="col">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${qList}" var="query">
                     <tr>
-                        <td>${query.questionId}</td>
+                        <td class="qid">${query.questionId}</td>
                         <td>${query.timeAllocated}</td>
                         <td>${query.description}</td>
                         <td>${query.firstAnswer}</td>
@@ -72,15 +73,19 @@
                         <td>${query.correctAnswer}</td>
                         <c:choose>
                             <c:when test="${query.correctAttempts/query.totalAttempts >= 0.7}">
-                                <td style="color: #5BFF33" data-toggle="tooltip" data-placement="top" title="Easy"><i class="material-icons">error</i></td>
+                                <td style="color: #5BFF33" data-toggle="tooltip" data-placement="top" title="Easy"><i
+                                        class="material-icons">error</i></td>
                             </c:when>
                             <c:when test="${query.correctAttempts/query.totalAttempts <= 0.4}">
-                                <td style="color: #FF3333" data-toggle="tooltip" data-placement="top" title="Hard"><i class="material-icons">error</i></td>
+                                <td style="color: #FF3333" data-toggle="tooltip" data-placement="top" title="Hard"><i
+                                        class="material-icons">error</i></td>
                             </c:when>
                             <c:otherwise>
-                                <td style="color: #FFD433" data-toggle="tooltip" data-placement="top" title="Average"><i class="material-icons">error</i></td>
+                                <td style="color: #FFD433" data-toggle="tooltip" data-placement="top" title="Average"><i
+                                        class="material-icons">error</i></td>
                             </c:otherwise>
                         </c:choose>
+                        <td><i class="material-icons btn-del" style="color:red;cursor: pointer;">delete</i></td>
                     </tr>
                 </c:forEach>
                 </tbody>
